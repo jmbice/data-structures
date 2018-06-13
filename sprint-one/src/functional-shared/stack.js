@@ -9,7 +9,6 @@ stackMethods = {
     this.count++;
     var currentCount = this.count;
     this[currentCount] = value;
-    // console.log(this);
   },
   pop : function(){
     var currentDelete = this[this.count];
