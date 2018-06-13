@@ -12,7 +12,6 @@ var Queue = function() {
     var lowest = Math.min(...Object.keys(storage));
     var returnDeleted = storage[lowest];
     delete storage[lowest];
-    count--;
     return returnDeleted;
   };
 
