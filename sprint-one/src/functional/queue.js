@@ -13,12 +13,15 @@ var Queue = function() {
     var returnDeleted = storage[lowest];
     delete storage[lowest];
     count--;
-    return returnDeleted
-
+    return returnDeleted;
   };
 
   someInstance.size = function() {
-    return count >= 0 ? count : 0;
+    var numOfKeys = 0;
+    for (var keys in storage) {
+      numOfKeys++;
+    }
+    return numOfKeys;
   };
 
   return someInstance;
