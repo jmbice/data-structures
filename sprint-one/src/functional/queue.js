@@ -5,16 +5,26 @@ var Queue = function() {
   var storage = {};
 
   // Implement the methods below
+  //store value in object 
 
   someInstance.enqueue = function(value) {
-    var index = Object.keys(value).length;
-    storage[index] = value
+    var index = Object.keys(storage).length ;
+    if (Object.keys(storage)[0] === "1" ){
+      index = index + 1;
+    };
+    //console.log(storage, "storage", "length",index)
+    storage[index] = value;
+    
+    //console.log(value ,"storage(index)")
   };
 
   someInstance.dequeue = function() {
-    var firstIndex = Object.keys(storage)[0]; //first item in array out
+
+    var firstIndex = Object.keys(storage)[0];
     var firstValue = storage[firstIndex];
+    //console.log(firstValue, "Delete Value")
     delete storage[firstIndex];
+    //console.log(storage, "new STorage")
     return firstValue;  
   };
 
