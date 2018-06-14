@@ -9,7 +9,10 @@ var Queue = function() {
   };
 
   someInstance.dequeue = function() {
-    var lowest = Math.min(...Object.keys(storage));
+    var lowest = Infinity;
+    for (keys in storage){
+      keys < lowest ? lowest = keys : null;
+    }
     var returnDeleted = storage[lowest];
     delete storage[lowest];
     return returnDeleted;
