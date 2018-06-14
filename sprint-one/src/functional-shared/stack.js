@@ -31,8 +31,8 @@ stackMethods = {};
 
 //var stackMethods = {
 stackMethods.push = function(value) {
-  	console.log("does execute")
-  	console.log(this, "passing value")
+  	// console.log("does execute")
+  	// console.log(this, "passing value")
   	var index = Object.keys(this.storage).length;
   	this.storage[index] = value;
 };
@@ -43,7 +43,7 @@ stackMethods.pop =  function() {
   	return lastElement;
 };
 stackMethods.size =  function() {
-  	console.log("test");
+  	// console.log("test");
   	var length = Object.keys(this.storage).length;
   	return length;
 };
