@@ -27,6 +27,6 @@ Queue.prototype.dequeue = function() {
 Queue.prototype.size = function() {
 	var length = Object.keys(this.storage).length;
 	return length;
-}
+};
 
 new Queue();
