@@ -8,13 +8,12 @@ var queueMethods = {};
 
 queueMethods.enqueue = function(value) {
   this.count++;
-  var currentCount = this.count;
-  this[currentCount] = value;
+  this[this.count] = value;
 };
 
 queueMethods.dequeue = function() {
   var lowest = Infinity;
-  for (keys in this) {
+  for (var keys in this) {
     keys < lowest ? lowest = keys : null;
   }
   var returnDeleted = this[lowest];
