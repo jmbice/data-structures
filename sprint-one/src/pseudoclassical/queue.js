@@ -10,7 +10,7 @@ Queue.prototype.enqueue = function(value) {
 
 Queue.prototype.dequeue = function() {
   var lowest = Infinity;
-  for (keys in this) {
+  for (var keys in this) {
     keys < lowest ? lowest = keys : null;
   }
   var returnDeleted = this[lowest];
