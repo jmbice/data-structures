@@ -11,16 +11,19 @@ var Tree = function(value) {
 var treeMethods = {};
 
 treeMethods.addChild = function(value) {
-  var anObj = { 'value': value };
+  var anObj = {
+    'value': value,
+    'children': []
+  };
+  _.extend(anObj, treeMethods);
   this.children.push(anObj);
 };
 
 treeMethods.contains = function(target) {
-  //iterate over this.children array
-  ///check each object in array and find "value" and check if it equals == target
-  //else return false
   for (var i = 0; i < this.children.length; i++) {
     if (this.children[i].value === target) {
+      return true;
+    } else if (this.children[i].contains(target)) {
       return true;
     }
   }
@@ -30,4 +33,7 @@ treeMethods.contains = function(target) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ * n = amount per level
+ * l = number of levels
+ * n^l
  */
