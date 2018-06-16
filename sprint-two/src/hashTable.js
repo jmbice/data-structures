@@ -17,7 +17,7 @@ HashTable.prototype.insert = function(k, v) {
 
   } else {
     var hasAdded;
-    this.storage[index].map(function(e){
+    this.storage[index].map(function(e) {
       if(e[0] === k) {
         e[1] = v;
         hasAdded = 'yes';
@@ -34,7 +34,7 @@ HashTable.prototype.retrieve = function(k) {
   var index = getIndexBelowMaxForKey(k, this.limit);
 
   for (var j = 0; j < this.storage[index].length; j++) {
-    if(this.storage[index][j][0] === k){
+    if(this.storage[index][j][0] === k) {
       return this.storage[index][j][1];
     }
   }
@@ -45,7 +45,7 @@ HashTable.prototype.remove = function(k) {
 
   var spliceIndex;
   for (var j = 0; j < this.storage[index].length; j++) {
-    if(this.storage[index][j][0] === k){
+    if(this.storage[index][j][0] === k) {
       spliceIndex = j;
     }    
   }
