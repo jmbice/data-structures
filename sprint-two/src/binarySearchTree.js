@@ -82,7 +82,7 @@ BinarySearchTree.prototype.depthFirstLog = function(func){
 
   } 
   
-  depthRecursion(this, func)
+  depthRecursion(this, func);
 };
 /*
  * Complexity: What is the time complexity of the above functions?
