@@ -39,8 +39,14 @@ describe('linkedList', function() {
   it('should contain a value that was added', function() {
     linkedList.addToTail(4);
     linkedList.addToTail(5);
+    linkedList.addToTail(100);
+    linkedList.addToTail(99);
+    linkedList.addToTail(54);
+  
     expect(linkedList.contains(4)).to.equal(true);
     expect(linkedList.contains(5)).to.equal(true);
+    expect(linkedList.contains(100)).to.equal(true);
+
     expect(linkedList.contains(6)).to.equal(false);
   });
 

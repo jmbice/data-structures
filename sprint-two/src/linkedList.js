@@ -10,9 +10,10 @@ var LinkedList = function() {
       list.tail = first;
     } else {
       var newNode = Node(value);
-      list.head.next = newNode;
+      list.tail.next = newNode;
       list.tail = newNode;
     }
+    console.log(list.tail);
   };
 
   list.removeHead = function() {
