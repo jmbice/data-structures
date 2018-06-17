@@ -39,14 +39,25 @@ describe('linkedList', function() {
   it('should contain a value that was added', function() {
     linkedList.addToTail(4);
     linkedList.addToTail(5);
+
+    //added tests, for more test cases with edge values
     linkedList.addToTail(100);
     linkedList.addToTail(99);
     linkedList.addToTail(54);
-  
-    expect(linkedList.contains(4)).to.equal(true);
+    linkedList.addToTail(-4);
+    linkedList.addToTail('hello');
+    linkedList.addToTail(null);
+    linkedList.addToTail(undefined);
+    expect(linkedList.contains(-4)).to.equal(true);
+    expect(linkedList.contains('hello')).to.equal(true);
+    expect(linkedList.contains(null)).to.equal(true);
+    expect(linkedList.contains(undefined)).to.equal(true);
+    expect(linkedList.contains(100)).to.equal(true);
+    expect(linkedList.contains(99)).to.equal(true);
+    expect(linkedList.contains(54)).to.equal(true);
+
     expect(linkedList.contains(5)).to.equal(true);
     expect(linkedList.contains(100)).to.equal(true);
-
     expect(linkedList.contains(6)).to.equal(false);
   });
 
@@ -57,5 +68,4 @@ describe('linkedList', function() {
     expect(linkedList.contains(4)).to.equal(false);
   });
 
-  // add more tests here to test the functionality of linkedList
 });

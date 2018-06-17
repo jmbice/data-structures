@@ -41,4 +41,19 @@ describe('tree', function() {
     expect(tree.contains(8)).to.equal(true);
   });
 
+  it('should add and find edge cases', function(){
+    //additional tests
+    tree.addChild(5);
+    tree.addChild(-5);
+    tree.addChild(null);
+    tree.addChild(undefined);
+    tree.addChild("Jordan and Thu are great");
+    expect(tree.contains(-5)).to.equal(true);
+    expect(tree.contains(null)).to.equal(true);
+    expect(tree.contains(undefined)).to.equal(true);
+    expect(tree.contains("Jordan and Thu are great")).to.equal(true);
+
+    //end of additional tests
+  });
+
 });
