@@ -33,7 +33,6 @@ treeMethods.contains = function(target) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
- * n = amount per level
- * l = number of levels
- * n^l
+ * addChild complexity is constant
+ * contains complexity is linear
  */
