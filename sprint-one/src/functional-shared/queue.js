@@ -1,3 +1,4 @@
+
 var Queue = function() {
   var obj = { count: 0 };
   _.extend(obj, queueMethods);

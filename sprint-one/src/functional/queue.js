@@ -24,7 +24,10 @@ var Queue = function() {
       numOfKeys++;
     }
     return numOfKeys;
+
   };
 
   return someInstance;
 };
+
+    

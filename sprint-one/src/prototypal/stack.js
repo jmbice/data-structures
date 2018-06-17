@@ -4,7 +4,7 @@ var Stack = function() {
   return obj;
 };
 
-var stackMethods = {};
+var stackMethod = {};
 
 stackMethods.push = function(value){
   this.count++;

@@ -7,13 +7,13 @@ var Stack = function() {
     storage[count] = value;
     count++;
   };
-
+  
   someInstance.pop = function() {
     delete storage[count];
     count--;
     return storage[count];
   };
-
+  
   someInstance.size = function() {
     return count >= 0 ? count : 0;
   };

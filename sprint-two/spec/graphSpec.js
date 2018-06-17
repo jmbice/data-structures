@@ -17,6 +17,17 @@ describe('graph', function() {
 
   it('should store values as nodes that were inserted', function() {
     graph.addNode(1);
+    // added tests to handle edge cases:
+    graph.addNode(undefined);
+    graph.addNode(null);
+    graph.addNode(0);
+    graph.addNode('this is a string');
+    expect(graph.contains(undefined)).to.equal(true);
+    expect(graph.contains(null)).to.equal(true);
+    expect(graph.contains(0)).to.equal(true);
+    expect(graph.contains('this is a string')).to.equal(true);
+
+    // end of added tests
     expect(graph.contains(1)).to.equal(true);
   });
 
@@ -41,7 +52,7 @@ describe('graph', function() {
     graph.addNode(5);
     graph.addEdge(5, 4);
     expect(graph.hasEdge(4, 5)).to.equal(true);
-    graph.removeEdge(5, 4);
+    graph.removeEdge(4, 5);
     expect(graph.hasEdge(4, 5)).to.equal(false);
   });
 
@@ -67,5 +78,21 @@ describe('graph', function() {
     expect(graph.hasEdge(1, 5)).to.equal(true);
     expect(graph.hasEdge(3, 5)).to.equal(true);
     expect(graph.hasEdge(5, 5)).to.equal(true);
+  });
+
+  // added tests
+  it('should handle situations where edge between non-existant nodes', function() {
+    graph.addNode(4);
+    graph.addNode(5);
+    graph.addEdge(100, 1000);
+    graph.addNode(8);
+    graph.addNode(13);
+    graph.addEdge(23, 45);
+    graph.addEdge(13, 9);
+    graph.addEdge(8, 13);
+    expect(graph.hasEdge(100, 1000)).to.equal(false);
+    expect(graph.hasEdge(23, 45)).to.equal(false);
+    expect(graph.hasEdge(13, 9)).to.equal(false);
+    expect(graph.hasEdge(8, 13)).to.equal(true);
   });
 });

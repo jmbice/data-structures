@@ -1,3 +1,11 @@
+// var Queue = function() {
+//   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
+//   // but try not not reference your old code in writing the new style.
+// };
+
+// var queueMethods = {};
+
+
 var Queue = function() {
   var obj = Object.create(queueMethods);
   obj.count = 0;
@@ -29,3 +37,4 @@ queueMethods.size = function() {
   }
   return numOfKeys - 4;
 };
+
