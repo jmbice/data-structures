@@ -13,7 +13,6 @@ var LinkedList = function() {
       list.tail.next = newNode;
       list.tail = newNode;
     }
-    console.log(list.tail);
   };
 
   list.removeHead = function() {
@@ -50,4 +49,6 @@ var Node = function(value) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ * for add and remove, O(1) / constant
+ * for contains = n
  */
