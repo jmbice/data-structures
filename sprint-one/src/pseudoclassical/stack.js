@@ -1,28 +1,20 @@
 var Stack = function() {
-  // Hey! Rewrite in the new style. Your code will wind up looking very similar,
-  // but try not not reference your old code in writing the new style.
-  this.storage = {};
+  this.count = 0;
 };
 
-Stack.prototype.push = function(value) {
-  	// console.log("does execute")
-  	// console.log(this, "passing value")
-  	var index = Object.keys(this.storage).length;
-  	this.storage[index] = value;
-};
-Stack.prototype.pop =  function() {
-  	var lastIndex = Object.keys(this.storage).length-1;
-  	var lastElement = this.storage[lastIndex];
-  	delete this.storage[lastIndex];
-  	return lastElement;
-};
-Stack.prototype.size =  function() {
-  	// console.log("test");
-  	var length = Object.keys(this.storage).length;
-  	return length;
+Stack.prototype.push = function(value){
+  this.count++;
+  var currentCount = this.count;
+  this[currentCount] = value;
 };
 
-new Stack();
+Stack.prototype.pop = function(){
+  var currentDelete = this[this.count];
+  delete this[this.count];
+  this.count > 0 ? this.count-- : this.count = 0;
+  return currentDelete;
+};
 
-
-
+Stack.prototype.size = function(){
+  return this.count;
+};

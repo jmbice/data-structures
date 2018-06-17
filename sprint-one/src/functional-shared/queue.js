@@ -1,41 +1,31 @@
 
 var Queue = function() {
-  // Hey! Rewrite in the new style. Your code will wind up looking very similar,
-  // but try not not reference your old code in writing the new style.
-
-
-  var instance = {};
-  instance.storage = {};
-  _.extend(instance, queueMethods);
-  return instance;
+  var obj = { count: 0 };
+  _.extend(obj, queueMethods);
+  return obj;
 };
 
-var queueMethods = {};
-
-queueMethods.enqueue = function(value) {
-	var index = Object.keys(this.storage).length;
-	if(Object.keys(this.storage)[0] === "1") {
-		index += 1; 
-	};
-	this.storage[index] = value;
-};
-
-queueMethods.dequeue = function() {
-	var firstIndex = Object.keys(this.storage)[0];
-	var firstElement = this.storage[firstIndex];
-	delete this.storage[firstIndex];
-	return firstElement;
+var queueMethods = {
+  enqueue: function(value) {
+    this.count++;
+    this[this.count] = value;
+  },
+  dequeue: function() {
+    var lowest = Infinity;
+    for (var keys in this) {
+      keys < lowest ? lowest = keys : null;
+    }
+    var returnDeleted = this[lowest];
+    delete this[lowest];
+    return returnDeleted;
+  }
 };
 
 queueMethods.size = function() {
-	var length = Object.keys(this.storage).length;
-	return length;
-}
-
-  //step1:
-  //create object containing methods and storage value
-  //extend methods in queueMethods to object 
-  //return instance
-  //step two: 
-  //create methods in queueMethods 
-  ////use this.storage to reference storage value
+  var numOfKeys = 0;
+  var relevantObj = this;
+  for (var keys in relevantObj) {
+    numOfKeys++;
+  }
+  return numOfKeys - 4;
+};

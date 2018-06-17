@@ -7,29 +7,34 @@
 
 
 var Queue = function() {
-  var instance = Object.create(queueMethods);
-  instance.storage = {};
-  return instance;
+  var obj = Object.create(queueMethods);
+  obj.count = 0;
+  return obj;
 };
 
 var queueMethods = {};
 
 queueMethods.enqueue = function(value) {
-	var index = Object.keys(this.storage).length;
-	if(Object.keys(this.storage)[0] === "1") {
-		index += 1; 
-	};
-	this.storage[index] = value;
+  this.count++;
+  this[this.count] = value;
 };
 
 queueMethods.dequeue = function() {
-	var firstIndex = Object.keys(this.storage)[0];
-	var firstElement = this.storage[firstIndex];
-	delete this.storage[firstIndex];
-	return firstElement;
+  var lowest = Infinity;
+  for (var keys in this) {
+    keys < lowest ? lowest = keys : null;
+  }
+  var returnDeleted = this[lowest];
+  delete this[lowest];
+  return returnDeleted;
 };
 
 queueMethods.size = function() {
-	var length = Object.keys(this.storage).length;
-	return length;
-}
+  var numOfKeys = 0;
+  var relevantObj = this;
+  for (var keys in relevantObj) {
+    numOfKeys++;
+  }
+  return numOfKeys - 4;
+};
+

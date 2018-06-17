@@ -1,39 +1,24 @@
-// var Stack = function() {
-//   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
-//   // but try not not reference your old code in writing the new style.
-// };
-
-// var stackMethods = {};
-
-
 var Stack = function() {
-  // Hey! Rewrite in the new style. Your code will wind up looking very similar,
-  // but try not not reference your old code in writing the new style.
-  var instance = Object.create(stackMethods);
-  instance.storage = {};
-  //console.log(storage, "storage");
-  return instance;
-
+  var obj = Object.create(stackMethods);
+  obj.count = 0;
+  return obj;
 };
 
+var stackMethod = {};
 
-stackMethods = {};
+stackMethods.push = function(value){
+  this.count++;
+  var currentCount = this.count;
+  this[currentCount] = value;
+};
 
-//var stackMethods = {
-stackMethods.push = function(value) {
-  	// console.log("does execute")
-  	// console.log(this, "passing value")
-  	var index = Object.keys(this.storage).length;
-  	this.storage[index] = value;
+stackMethods.pop = function(){
+  var currentDelete = this[this.count];
+  delete this[this.count];
+  this.count > 0 ? this.count-- : this.count = 0;
+  return currentDelete;
 };
-stackMethods.pop =  function() {
-  	var lastIndex = Object.keys(this.storage).length-1;
-  	var lastElement = this.storage[lastIndex];
-  	delete this.storage[lastIndex];
-  	return lastElement;
-};
-stackMethods.size =  function() {
-  	// console.log("test");
-  	var length = Object.keys(this.storage).length;
-  	return length;
+
+stackMethods.size = function(){
+  return this.count;
 };
